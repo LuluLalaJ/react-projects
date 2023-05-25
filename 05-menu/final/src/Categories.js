@@ -12,7 +12,7 @@ const Categories = ({ categories, filterItems }) => {
             onClick={() => filterItems(category)}
           >
             {category}
-          </button>
+          </button>=
         );
       })}
     </div>

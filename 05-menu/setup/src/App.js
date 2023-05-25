@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Menu from './Menu';
 import Categories from './Categories';
 import items from './data';
+//interesting syntax, using Set class to create unique list
+const categories = ['all', ...new Set(items.map(item => item.category))]
+
 
 function App() {
   const [menu, setMenu] = useState(items)
@@ -29,13 +32,13 @@ function App() {
           <h2>Our Menu</h2>
           <div className="underline"></div>
         </div>
-        <div className="btn-container">
-
+        <Categories categories={categories} filterByCategory={filterByCategory}/>
+        {/* <div className="btn-container">
           <button type="button" className="filter-btn" onClick={(e)=>filterByCategory(e.target.textContent)}>all</button>
           <button type="button" className="filter-btn" onClick={(e)=>filterByCategory(e.target.textContent)}>breakfast</button>
           <button type="button" className="filter-btn" onClick={(e)=>filterByCategory(e.target.textContent)}>lunch</button>
           <button type="button" className="filter-btn" onClick={(e)=>filterByCategory(e.target.textContent)}>shakes</button>
-        </div>
+        </div> */}
         <div className="section-center">
           {renderMenu}
         </div>
